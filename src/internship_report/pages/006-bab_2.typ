@@ -15,7 +15,9 @@
 	lang: "id"
 )
 
-#set heading(numbering: "1.1")
+// Nonaktifkan penomoran untuk judul bab (level 1) agar tidak muncul angka
+// liar di Daftar Isi; penomoran sub-bab diaktifkan kembali setelah judul bab.
+#set heading(numbering: none)
 
 #show heading.where(level: 1) : it => {
 	show text: upper
@@ -39,6 +41,8 @@
 
 = bab II\ GAMBARAN UMUM Organisasi/PROYEK
 
+#set heading(numbering: "1.1")
+
 #set figure(
   numbering: (..n) => {
     let h = counter(heading).get().at(0)
@@ -48,7 +52,8 @@
 )
 
 #counter(heading).update((2))
-#counter(figure.where(kind: table)).update(1)
+#counter(figure.where(kind: table)).update(0)
+#counter(figure.where(kind: image)).update(0)
 
 #set par(
 	spacing: 1.3em, 
@@ -138,31 +143,102 @@ Melalui lingkup pekerjaan tersebut, LPPM Institut Teknologi PLN berperan dalam m
 #v(1.5pt)
 === Portofolio #upper(kOrgLppm + " " + kInstitute)
 #v(4pt)
+Portofolio LPPM Institut Teknologi PLN mencerminkan kontribusi lembaga dalam mendukung kegiatan penelitian dan pengabdian kepada masyarakat di lingkungan institusi. Portofolio tersebut meliputi pelaksanaan penelitian yang didanai melalui berbagai skema hibah, kegiatan pengabdian kepada masyarakat yang berorientasi pada penerapan teknologi, perolehan Hak Kekayaan Intelektual (HKI), serta penyebarluasan hasil penelitian melalui publikasi ilmiah. Capaian tersebut menunjukkan bahwa LPPM berperan sebagai fasilitator dan penggerak kegiatan ilmiah bagi dosen maupun mahasiswa.
+#parbreak()
+Salah satu bentuk kegiatan yang dikelola LPPM adalah penyelenggaraan program penelitian bagi mahasiswa, seperti program _Student Research_ yang dilaksanakan bersama Bagian Kegiatan Mahasiswa dan Konseling. Melalui program tersebut, mahasiswa memperoleh kesempatan untuk mengembangkan ide penelitian melalui proses seleksi dan penilaian proposal @itpln:student_research2. Selain itu, penguatan budaya riset di lingkungan Institut Teknologi PLN tercermin dari capaian pemeringkatan SINTA pada Klaster Utama, yang menunjukkan adanya peningkatan kinerja penelitian dan publikasi ilmiah @itpln:budaya_riset_dan_publikasi_ilmiah.
+#parbreak()
+Portofolio kegiatan pengabdian kepada masyarakat diarahkan pada penerapan ilmu pengetahuan dan teknologi untuk memberikan manfaat bagi masyarakat. Kegiatan ini mencakup penerapan teknologi tepat guna, pendampingan masyarakat, serta program yang mendukung kemandirian dan kesejahteraan, khususnya pada bidang energi dan lingkungan. Seluruh informasi mengenai program, kegiatan, dan hasil pelaksanaan penelitian serta pengabdian tersebut disampaikan kepada publik melalui website resmi LPPM Institut Teknologi PLN @itpln:lppm.
+#parbreak()
+#figure(
+	caption:  "Portofolio Penelitian dan Publikasi Ilmiah LPPM Institut Teknologi PLN",
+	kFigPlaceholder("portofolio penelitian dan publikasi"),
+)
+#parbreak()
+#figure(
+	caption:  "Portofolio Pengabdian kepada Masyarakat dan Hilirisasi Hasil Inovasi LPPM Institut Teknologi PLN",
+	kFigPlaceholder("portofolio pengabdian kepada masyarakat"),
+)
+#parbreak()
+Portofolio yang dimiliki LPPM menjadi salah satu bahan pertimbangan dalam perancangan website. Informasi mengenai penelitian, publikasi, pengabdian, serta hasil inovasi perlu disajikan secara terstruktur agar pengguna dapat memahami cakupan kegiatan LPPM dan menemukan informasi yang dibutuhkan. Oleh karena itu, penyajian portofolio pada website menjadi salah satu aspek yang diperhatikan dalam perancangan UI/UX yang dilakukan pada kegiatan magang ini.
 
 #v(1.5pt)
 == Struktur Organisasi
 #v(4pt)
-
+Struktur organisasi merupakan kerangka formal yang menggambarkan kedudukan, tugas, dan hubungan kerja antar unit dalam suatu organisasi. Pada bagian ini diuraikan struktur organisasi Institut Teknologi PLN secara umum, struktur organisasi LPPM sebagai unit tempat pelaksanaan kegiatan magang, serta posisi mahasiswa dalam struktur tersebut. Uraian ini bertujuan memberikan gambaran mengenai konteks kelembagaan yang melatarbelakangi perancangan UI/UX website LPPM Institut Teknologi PLN.
+#parbreak()
 #v(1.5pt)
-=== Struktur Organisasi Organisasi
+=== Struktur Organisasi Institut Teknologi PLN
 #v(4pt)
-
+Institut Teknologi PLN merupakan perguruan tinggi yang dipimpin oleh Rektor dan dibantu oleh Wakil Rektor dalam menjalankan fungsi akademik maupun non-akademik. Dalam struktur organisasi institusi, LPPM berada pada ranah non-akademik yang mendukung pelaksanaan Tridharma Perguruan Tinggi, khususnya pada bidang penelitian dan pengabdian kepada masyarakat. Kedudukan LPPM sebagai salah satu unit di lingkungan Institut Teknologi PLN tercantum dalam struktur organisasi resmi institusi @itpln:struktur_organisasi.
+#parbreak()
+#figure(
+	caption:  "Struktur Organisasi Institut Teknologi PLN",
+	kFigPlaceholder("struktur organisasi institusi (bagian terkait LPPM)"),
+)
+#parbreak()
 #v(1.5pt)
-=== Struktur Organisasi Unit Kerja
+=== Struktur Organisasi Unit Kerja LPPM
 #v(4pt)
-
+LPPM Institut Teknologi PLN dipimpin oleh seorang Ketua LPPM yang bertanggung jawab atas penyelenggaraan kegiatan penelitian dan pengabdian kepada masyarakat. Dalam melaksanakan tugasnya, Ketua LPPM dibantu oleh seorang Sekretaris serta beberapa unsur pengelola yang menangani bidang penelitian, pengabdian kepada masyarakat, Hak Kekayaan Intelektual (HKI) dan inkubasi, serta publikasi dan penerbitan. Selain itu, terdapat staf administrasi yang mendukung kelancaran operasional kegiatan LPPM.
+#parbreak()
+Untuk menunjang penyampaian informasi dan layanan digital, LPPM memiliki pengelola sistem informasi dan website yang bertanggung jawab atas pengelolaan serta pengembangan sarana informasi digital LPPM. Unit inilah yang menjadi tempat pelaksanaan kegiatan magang dalam perancangan UI/UX website LPPM Institut Teknologi PLN. Susunan unit kerja tersebut dapat dilihat pada gambar berikut.
+#parbreak()
+#figure(
+	caption:  "Struktur Organisasi Unit Kerja LPPM Institut Teknologi PLN",
+	kFigPlaceholder("struktur organisasi unit kerja LPPM"),
+)
+#parbreak()
 #v(1.5pt)
 === Posisi Mahasiswa dalam Struktur
 #v(4pt)
+Mahasiswa ditempatkan pada unit pengelola sistem informasi dan website di lingkungan LPPM Institut Teknologi PLN. Penempatan tersebut berkaitan langsung dengan proyek perancangan UI/UX website LPPM, sehingga mahasiswa memperoleh kesempatan untuk menerapkan pengetahuan di bidang perancangan antarmuka dan pengalaman pengguna pada lingkungan kerja yang nyata. Dalam pelaksanaannya, mahasiswa diarahkan dan dibimbing oleh Pembimbing Lapangan yang memberikan arahan teknis serta mengawasi jalannya kegiatan.
+#parbreak()
+#figure(
+	caption:  "Posisi Mahasiswa dalam Struktur Organisasi LPPM Institut Teknologi PLN",
+	kFigPlaceholder("posisi mahasiswa dalam struktur organisasi"),
+)
+#parbreak()
 
 #v(1.5pt)
 == Deskripsi Tugas
 #v(4pt)
-
+Bagian ini menjelaskan tugas utama dari masing-masing bagian pada unit kerja LPPM, khususnya yang berkaitan dengan pengelolaan informasi dan pengembangan website, serta uraian mengenai posisi dan tugas mahasiswa selama pelaksanaan kegiatan magang.
+#parbreak()
 #v(1.5pt)
-=== Tugas Masing-Masing Bagian Divisi TI & GIS
+=== Tugas Masing-Masing Bagian pada Unit Kerja LPPM
 #v(4pt)
-
+Secara umum, unit kerja LPPM Institut Teknologi PLN menjalankan fungsi-fungsi yang saling berkaitan dalam mendukung pelaksanaan penelitian dan pengabdian kepada masyarakat. Tugas masing-masing bagian tersebut adalah sebagai berikut.
+#block(inset: (left: 2em))[
+	+ *Pengelolaan Penelitian* \
+		Bertanggung jawab dalam fasilitasi pengajuan proposal penelitian, koordinasi pelaksanaan penelitian, pemantauan hasil penelitian, serta pengelolaan informasi mengenai program dan pendanaan penelitian di lingkungan Institut Teknologi PLN.
+	+ *Pengelolaan Pengabdian kepada Masyarakat* \
+		Bertanggung jawab dalam fasilitasi dan koordinasi program pengabdian kepada masyarakat yang dilaksanakan oleh dosen maupun mahasiswa, termasuk pengelolaan informasi mengenai kegiatan dan hasil pelaksanaan pengabdian.
+	+ *Pengelolaan Hak Kekayaan Intelektual dan Inkubasi* \
+		Bertanggung jawab dalam pendampingan pengajuan Hak Kekayaan Intelektual (HKI) atas hasil penelitian dan inovasi, serta pengelolaan kegiatan inkubasi untuk mendorong pemanfaatan hasil inovasi.
+	+ *Pengelolaan Publikasi dan Penerbitan* \
+		Bertanggung jawab dalam mendukung penyebarluasan hasil penelitian melalui publikasi ilmiah serta pengelolaan penerbitan yang berkaitan dengan karya ilmiah.
+	+ *Pengelolaan Sistem Informasi dan Website* \
+		Bertanggung jawab dalam pengelolaan dan pengembangan sarana informasi digital LPPM, termasuk website resmi LPPM, penyajian konten informasi, serta integrasi data yang berkaitan dengan kegiatan penelitian dan pengabdian kepada masyarakat. Unit inilah yang menjadi tempat penempatan mahasiswa selama kegiatan magang.
+]
+Uraian tugas tersebut menunjukkan bahwa pengelolaan informasi digital merupakan salah satu fungsi penting dalam mendukung penyampaian informasi LPPM kepada sivitas akademika dan masyarakat umum. Oleh karena itu, kualitas tampilan dan kemudahan penggunaan website menjadi bagian yang perlu diperhatikan.
+#parbreak()
 #v(1.5pt)
 === Posisi dan Tugas Mahasiswa
 #v(4pt)
+Mahasiswa ditempatkan pada unit pengelola sistem informasi dan website LPPM dengan posisi sebagai perancang antarmuka dan pengalaman pengguna (UI/UX _Designer_). Pada posisi tersebut, mahasiswa bertanggung jawab merancang tampilan website LPPM Institut Teknologi PLN yang lebih terstruktur, konsisten, dan berorientasi pada kebutuhan pengguna. Adapun tugas dan tanggung jawab mahasiswa selama kegiatan magang meliputi:
+#block(inset: (left: 2em))[
+	+ *Analisis Kondisi dan Kebutuhan* \
+		Melakukan observasi terhadap website LPPM yang sedang digunakan serta mengidentifikasi kebutuhan pengguna dan permasalahan antarmuka yang berpotensi menyulitkan akses informasi.
+	+ *Perancangan Struktur Informasi dan Navigasi* \
+		Menyusun struktur informasi, menu navigasi, serta alur penggunaan website agar informasi dapat ditemukan secara lebih mudah dan terarah.
+	+ *Pembuatan Wireframe* \
+		Membuat kerangka tampilan (wireframe) sebagai dasar penyusunan tata letak informasi pada setiap halaman website.
+	+ *Perancangan Desain UI/UX* \
+		Merancang desain antarmuka website menggunakan perangkat perancangan Figma, meliputi tata letak, tipografi, warna, ikon, dan komponen antarmuka yang sesuai dengan identitas visual Institut Teknologi PLN.
+	+ *Pembuatan Prototipe Interaktif* \
+		Mengembangkan prototipe interaktif untuk menggambarkan alur interaksi pengguna pada website.
+	+ *Evaluasi Usability* \
+		Melakukan evaluasi terhadap rancangan yang dibuat untuk memperoleh masukan mengenai kemudahan penggunaan serta melakukan penyempurnaan sesuai hasil evaluasi.
+	+ *Dokumentasi dan Pendukung Pengembangan* \
+		Mendokumentasikan seluruh proses perancangan dan menyiapkan aset desain yang dapat digunakan sebagai acuan pada tahap implementasi pengembangan website.
+]

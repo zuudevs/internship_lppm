@@ -123,4 +123,7 @@
 
 #include "pages/005-bab_1.typ"
 #include "pages/006-bab_2.typ"
+#include "pages/007-bab_3.typ"
+#include "pages/008-bab_4.typ"
+#include "pages/009-bab_5.typ"
 #bibliography("assets/cites.bib")
